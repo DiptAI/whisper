@@ -1,0 +1,17 @@
+{
+  "name": "whisper-chain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chinese-whispers style audio/text data collection tool (probabilistic hop chains with human and model participants)",
+  "packageManager": "pnpm@9.14.2",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "pnpm --parallel --filter server --filter web dev",
+    "build": "pnpm --filter web build && pnpm --filter server build && rm -rf server/public && cp -r web/dist server/public",
+    "start": "pnpm --filter server start",
+    "typecheck": "pnpm --filter server typecheck && pnpm --filter web typecheck",
+    "test": "pnpm --filter server test",
+    "db:migrate": "pnpm --filter server db:migrate",
+    "seed:import": "pnpm --filter server seed:import"
+  }
+}
